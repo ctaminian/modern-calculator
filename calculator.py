@@ -68,7 +68,7 @@ def main():
     grid_layout.setSpacing(0)
     grid_layout.setAlignment(Qt.AlignmentFlag.AlignTop)
 
-    # Create buttons with different colors and sizes
+    # Create buttons with different sizes
     buttons = [
         [("C", 20, 75, 80, "press_c"), ("⌫", 15, 75, 80, "press_del"), ("÷", 25, 75, 80, "press_divide"), ("x", 20, 75, 80, "press_multiply")],
         [("7", 20, 75, 80, "press_7"), ("8", 20, 75, 80, "press_8"), ("9", 20, 75, 80, "press_9"), ("-", 20, 75, 80, "press_minus")],
@@ -125,16 +125,28 @@ def press_dot(display):
     display.setText(text + ".")
 
 def press_divide(display):
-    display.setText(display.text() + "÷")
+    if display.text()[-1] == "÷":
+        return
+    else:
+        display.setText(display.text() + "÷")
 
 def press_multiply(display):
-    display.setText(display.text() + "x")
+    if display.text()[-1] == "x":
+        return
+    else:
+        display.setText(display.text() + "x")
 
 def press_minus(display):
-    display.setText(display.text() + "-")
+    if display.text()[-1] == "-":
+        return
+    else:
+        display.setText(display.text() + "-")
 
 def press_plus(display):
-    display.setText(display.text() + "+")
+    if display.text()[-1] == "+":
+        return
+    else:
+        display.setText(display.text() + "+")
 
 def press_1(display):
     if display.text() == "0":

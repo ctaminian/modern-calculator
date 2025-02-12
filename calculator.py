@@ -197,7 +197,23 @@ def press_0(display):
         display.setText(display.text() + "0")
 
 def press_equals(display):
-    pass
+    try:
+        text = display.text()
+        text = text.replace("x", "*").replace("÷", "/")
+        result = eval(text)
+
+        if isinstance(result, float) and result.is_integer():
+            result = int(result)
+        else:
+            result = round(result, 6)
+
+        display.setText(str(result))
+
+    except ZeroDivisionError:
+        display.setText("Error")
+    
+    except Exception:
+        display.setText("Error")
 
 button_functions_dict = {
     "press_c": press_c,

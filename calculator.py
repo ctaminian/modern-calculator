@@ -125,29 +125,29 @@ def press_dot(display):
     display.setText(text + ".")
 
 def press_divide(display):
-    if display.text()[-1] == "÷":
-        return
+    if display.text()[-1] in "+-x÷":
+        display.setText(display.text()[:-1] + "÷")
     else:
         display.setText(display.text() + "÷")
 
 def press_multiply(display):
-    if display.text()[-1] == "x":
-        return
+    if display.text()[-1] in "+-x÷":
+        display.setText(display.text()[:-1] + "x")
     else:
         display.setText(display.text() + "x")
 
 def press_minus(display):
-    if display.text()[-1] == "-":
-        return
+    if display.text()[-1] in "+-x÷":
+        display.setText(display.text()[:-1] + "-")
     else:
         display.setText(display.text() + "-")
 
 def press_plus(display):
-    if display.text()[-1] == "+":
-        return
+    if display.text()[-1] in "+-x÷":
+        display.setText(display.text()[:-1] + "+")
     else:
         display.setText(display.text() + "+")
-
+        
 def press_1(display):
     if display.text() == "0":
         display.setText("1")

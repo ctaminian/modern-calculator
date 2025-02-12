@@ -68,7 +68,7 @@ def main():
     grid_layout.setSpacing(0)
     grid_layout.setAlignment(Qt.AlignmentFlag.AlignTop)
 
-    # Create buttons with different sizes
+    # Create buttons with different text, font sizes, dimensions and functions
     buttons = [
         [("C", 20, 75, 80, "press_c"), ("⌫", 15, 75, 80, "press_del"), ("÷", 25, 75, 80, "press_divide"), ("x", 20, 75, 80, "press_multiply")],
         [("7", 20, 75, 80, "press_7"), ("8", 20, 75, 80, "press_8"), ("9", 20, 75, 80, "press_9"), ("-", 20, 75, 80, "press_minus")],
@@ -122,7 +122,11 @@ def press_dot(display):
     text = display.text()
     if "." in text.split()[-1]:
         return
-    display.setText(text + ".")
+    
+    if text == "0":
+        display.setText("0.")
+    else:
+        display.setText(text + ".")
 
 def press_divide(display):
     if display.text()[-1] in "+-x÷":
@@ -147,7 +151,7 @@ def press_plus(display):
         display.setText(display.text()[:-1] + "+")
     else:
         display.setText(display.text() + "+")
-        
+
 def press_1(display):
     if display.text() == "0":
         display.setText("1")
@@ -204,7 +208,7 @@ def press_9(display):
 
 def press_0(display):
     if display.text() == "0":
-        display.setText("0")
+        return
     else:    
         display.setText(display.text() + "0")
 
@@ -227,6 +231,7 @@ def press_equals(display):
     except Exception:
         display.setText("Error")
 
+# Dictionary to map button function names to actual functions
 button_functions_dict = {
     "press_c": press_c,
     "press_del": press_del,

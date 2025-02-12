@@ -39,7 +39,7 @@ def main():
         }
     """)
 
-    display.setText("470.3")
+    display.setText("0")
 
     # Function to create custom buttons with gradients
     def create_button(text, font_size, width, height, func_name, display):
@@ -110,10 +110,13 @@ def main():
 
 # Button functions
 def press_c(display):
-    display.clear()
+    display.setText("0")
 
 def press_del(display):
-    display.setText(display.text()[:-1])
+    if display.text()[:-1] == "":
+        display.setText("0")
+    else:
+        display.setText(display.text()[:-1])
 
 def press_dot(display):
     text = display.text()
@@ -134,34 +137,64 @@ def press_plus(display):
     display.setText(display.text() + "+")
 
 def press_1(display):
-    display.setText(display.text() + "1")
+    if display.text() == "0":
+        display.setText("1")
+    else:    
+        display.setText(display.text() + "1")
 
 def press_2(display):
-    display.setText(display.text() + "2")
+    if display.text() == "0":
+        display.setText("2")
+    else:    
+        display.setText(display.text() + "2")
 
 def press_3(display):
-    display.setText(display.text() + "3")
+    if display.text() == "0":
+        display.setText("3")
+    else:    
+        display.setText(display.text() + "3")
 
 def press_4(display):
-    display.setText(display.text() + "4")
+    if display.text() == "0":
+        display.setText("4")
+    else:    
+        display.setText(display.text() + "4")
 
 def press_5(display):
-    display.setText(display.text() + "5")
+    if display.text() == "0":
+        display.setText("5")
+    else:    
+        display.setText(display.text() + "5")
 
 def press_6(display):
-    display.setText(display.text() + "6")
+    if display.text() == "0":
+        display.setText("6")
+    else:    
+        display.setText(display.text() + "6")
 
 def press_7(display):
-    display.setText(display.text() + "7")
+    if display.text() == "0":
+        display.setText("7")
+    else:    
+        display.setText(display.text() + "7")
 
 def press_8(display):
-    display.setText(display.text() + "8")
+    if display.text() == "0":
+        display.setText("8")
+    else:    
+        display.setText(display.text() + "8")
 
 def press_9(display):
-    display.setText(display.text() + "9")
+    if display.text() == "0":
+        display.setText("9")
+    else:    
+        display.setText(display.text() + "9")
 
 def press_0(display):
-    display.setText(display.text() + "0")
+    if display.text() == "0":
+        display.setText("0")
+    else:    
+        display.setText(display.text() + "0")
 
 def press_equals(display):
     pass

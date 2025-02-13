@@ -215,6 +215,10 @@ def press_0(display):
 def press_equals(display):
     try:
         text = display.text()
+
+        if text[-1] in "+-x÷":
+            text = text[:-1]
+            
         text = text.replace("x", "*").replace("÷", "/")
         result = eval(text)
 
